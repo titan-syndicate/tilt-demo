@@ -1,0 +1,33 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: echo-child-2
+  namespace: echo-demo
+spec:
+  type: ClusterIP
+  ports:
+  - port: 80
+    targetPort: 3333
+  selector:
+    app: echo-child-2
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: echo-child-2
+  namespace: echo-demo
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: echo-child-2
+  template:
+    metadata:
+      labels:
+        app: echo-child-2
+    spec:
+      containers:
+      - name: echo-child-2-container
+        image: rianfowler/echo-child-2
+        ports:
+        - containerPort: 3333
