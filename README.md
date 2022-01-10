@@ -10,7 +10,7 @@ This is a simple demonstration of how Tilt works.
 
 ### Optional
 
-- k9s - `brew install derailed/k9s/k9s`m
+- k9s - `brew install derailed/k9s/k9s`
 
 ## Running demo
 
