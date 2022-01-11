@@ -29,7 +29,7 @@ Response from echo-grandchild-1%`
 
 ## Viewing cluster with Weave Scope
 
-_Instructions taken from [here](https://www.weave.works/docs/scope/latest/installing/#k8s)
+_Instructions taken from [here](https://www.weave.works/docs/scope/latest/installing/#k8s)_
 
 1. `kubectl apply -f "https://cloud.weave.works/k8s/scope.yaml?k8s-version=$(kubectl version | base64 | tr -d '\n')"`
 1. `kubectl port-forward -n weave "$(kubectl get -n weave pod --selector=weave-scope-component=app -o jsonpath='{.items..metadata.name}')" 4040`
