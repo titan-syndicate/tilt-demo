@@ -31,7 +31,7 @@ func HelloHandler(w http.ResponseWriter, r *http.Request) {
 		log.Fatalln(err)
 	}
 
-	fmt.Fprintf(w, "Response from echo-child-2\n")
+	fmt.Fprintf(w, "Response from echo-child-2 hello\n")
 	fmt.Fprintf(w, string(body))
 }
 

@@ -1,0 +1,1 @@
+ctlptl create cluster minikube --registry=ctlptl-registry --kubernetes-version=v1.22.3`

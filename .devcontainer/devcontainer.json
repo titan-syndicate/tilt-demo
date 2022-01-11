@@ -1,0 +1,30 @@
+{
+  "name": "Kubernetes - Minikube-in-Docker",
+  "dockerFile": "Dockerfile",
+  "runArgs": ["--privileged"],
+  "mounts": [
+    "source=minikube-var-lib-docker,target=/var/lib/docker,type=volume",
+    "source=minikube-config,target=/home/vscode/.minikube,type=volume"
+  ],
+  "features": {
+    "github-cli": "latest"
+  },
+  "overrideCommand": false,
+
+  // Set *default* container specific settings.json values on container create.
+  "settings": {},
+
+  // Add the IDs of extensions you want installed when the container is created.
+  "extensions": ["ms-azuretools.vscode-docker", "ms-kubernetes-tools.vscode-kubernetes-tools"],
+
+  // Use 'forwardPorts' to make a list of ports inside the container available locally.
+  "forwardPorts": [49000],
+
+  // Use 'postCreateCommand' to run commands after the container is created.
+  // "postCreateCommand": "kubectl version",
+
+	// Use 'postStartCommand' to run commands after the container is created like starting minikube.
+	"postStartCommand": "chmod +x /workspaces/embark-deployment/scripts/* && bash -c './scripts/start-up.sh'",
+	// Minikube does not like running as root, so use a non-root user.
+	"remoteUser": "vscode"
+}
